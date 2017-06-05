@@ -186,6 +186,9 @@ describe('Users',function(){
       .end((err,res)=>{
         res.should.have.status(200)
         res.body.should.be.a('object')
+        res.body.should.have.property('username')
+        res.body.should.have.property('password')
+        res.body.should.have.property('email')
         done()
       })
     })
@@ -203,6 +206,8 @@ describe('Users',function(){
         console.log(`login `+ res.body);
         res.should.have.status(200)
         res.body.should.be.a('object')
+        res.body.should.have.property('username')
+        res.body.should.have.property('password')
         done()
       })
     })
