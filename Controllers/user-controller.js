@@ -26,7 +26,7 @@ function login (req,res,next){
     }
     else{
       if(bcrypt.compare(req.body.password,result.password)){
-        let token = jwt.sign({_id:result._id,username:result.username,email:result.email})
+        let token = jwt.sign({_id:result._id,username:result.username,email:result.email},SECRET)
         res.send(token)
       }
       else{
